@@ -2,7 +2,7 @@ echo -e "\033[0;35m"
 echo "====================================================="
 echo "                  AIRDROP ASC                        "
 echo "====================================================="
-echo -e '\e[35mNode :\e[35m' CHAMS
+echo -e '\e[35mNode :\e[35m' CHASM
 echo -e '\e[35mTelegram Channel :\e[35m' @airdropasc
 echo -e '\e[35mTelegram Group :\e[35m' @autosultan_group
 echo "====================================================="
@@ -15,6 +15,18 @@ sudo apt-get update && sudo apt-get upgrade -y
 sleep 2
 
 for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove $pkg; done
+
+sleep 2
+
+echo -e "\033[0;35m"
+echo "Submit Detail Your Chasm Scout"
+echo "================================="
+read -p "SCOUTNAME: " SCOUTNAME
+read -p "SCOUTUID: " SCOUTUID
+read -p "WEBHOOKAPI: " WEBHOOKAPI
+read -p "GROQAPI: " GROQAPI
+echo "================================="
+echo -e "\e[0m"
 
 sleep 2
 
