@@ -27,14 +27,17 @@ echo -e "\e[0m"
 sleep 2
 
 sudo apt-get update
-
 sudo apt-get install ca-certificates curl
 
+sleep 2
+
 sudo install -m 0755 -d /etc/apt/keyrings
-
 sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
-
 sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+sleep 2
+
+sudo sh -c "echo 'deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable' > /etc/apt/sources.list.d/docker.list"
 
 sleep 2
 
@@ -45,6 +48,8 @@ sleep 2
 
 mkdir -p ~/chasm
 cd ~/chasm
+
+sleep 2
 
 cat > .env <<EOF
 PORT=3001
@@ -61,8 +66,12 @@ OPENROUTER_API_KEY=
 OPENAI_API_KEY=
 EOF
 
+sleep 2
+
 docker pull chasmtech/chasm-scout:latest
 docker run -d --restart=always --env-file ./.env -p 3001:3001 --name scout chasmtech/chasm-scout
+
+sleep 2
 
 echo -e "\033[0;35m"
 echo '=============== DONE ==================='
